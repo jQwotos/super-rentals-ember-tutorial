@@ -6,4 +6,11 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function () {});
+Router.map(function () {
+  this.route('about');
+  // The old website uses getting-in-touch as the URL, but since we don't
+  // want to have to call it that anymore, we can simply have it route to
+  // a contact page
+  this.route('contact', { path: '/getting-in-touch' });
+  this.route('rental', { path: '/rentals/:rental_id' });
+});
